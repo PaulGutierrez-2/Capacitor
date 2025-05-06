@@ -1,0 +1,7 @@
+{
+  "name": "sem6",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}
