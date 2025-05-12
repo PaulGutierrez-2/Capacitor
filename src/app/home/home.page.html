@@ -14,7 +14,29 @@
   </ion-header>
 
   <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+    <h1><strong>GEOLOCALIZACION</strong></h1>
+    <ion-button (click)="getLocation()">OBTENER UBICACION</ion-button>
+    @if (latitude && longitude) {
+      <p><strong>LATITUD: </strong>{{latitude}}</p>
+      <p><strong>LONGITUD: </strong>{{longitude}}</p>
+    }
+  </div>
+    
+  <div id="container">
+    <h1><strong>NETWORK</strong></h1>
+    <ion-button (click)="getNetworkStatus()">ESTADO DE LA RED</ion-button>
+    @if (networkStatus) {
+      <p><strong>TIPO DE CONEXION: </strong>{{typeConectionStatus}}</p>
+      <p><strong>ESTADO: </strong>{{networkStatus}}</p>
+    }
+  </div>
+
+  <div id="container">
+    <h1><strong>CAMERA</strong></h1>
+    <ion-button (click)="takePicture()">TOMAR FOTO</ion-button>
+    @if (picture) {
+      <p><strong>TU FOTO: </strong></p>
+      <img [src]="picture" alt="">
+    }
   </div>
 </ion-content>
