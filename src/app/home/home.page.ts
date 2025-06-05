@@ -3,6 +3,7 @@ import { GeolocationService } from '../services/geolocation.service';
 import { NetworkService } from '../services/network.service';
 import { CameraService } from '../services/camera.service';
 import { IonicModule } from '@ionic/angular';
+import { ShareService } from '../services/share.service';
 
 @Component({
   selector: 'app-home',
@@ -23,7 +24,8 @@ export class HomePage {
   constructor(
     private geoService: GeolocationService,
     private networkService: NetworkService,
-    private cameraService: CameraService
+    private cameraService: CameraService,
+    private shareService: ShareService
   ) { }
 
   async getLocation() {
@@ -54,5 +56,14 @@ export class HomePage {
     } catch (error) {
       console.error('Error taking picture', error);
     }
+  }
+
+    compartir() {
+    this.shareService.shareContent(
+      'Título',
+      'Texto a compartir',
+      'https://ejemplo.com',
+      'Compartir con...'
+    );
   }
 }
